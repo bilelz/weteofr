@@ -1,0 +1,169 @@
+#container {
+	
+	margin: 0 auto;
+	height: auto;
+	position: relative;
+	margin-bottom: 10px;
+	
+	-webkit-perspective: 1000;
+	   -moz-perspective: 1000;
+	   -o-perspective: 1000;
+	   -moz-transform: perspective(1000px);
+	        perspective: 1000;
+	        
+	-webkit-transform-style: preserve-3d;
+	   -moz-transform-style: preserve-3d;
+	   -o-transform-style: preserve-3d;
+	        transform-style: preserve-3d;	        
+
+	-webkit-transition: all .3s;
+	   -moz-transition: all .3s;
+	   -o-transition: all .3s;
+	        transition: all .3s;
+	
+	-webkit-filter: blur(0);
+	   -moz-filter: blur(0);
+	   -o-filter: blur(0);
+	        filter: blur(0);
+}
+
+#container.blur{	
+	-webkit-filter: blur(3px);
+	   -moz-filter: blur(3px);
+	        filter: blur(3px);
+}
+
+#container > div{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	position: relative;
+	
+	-webkit-transition: 1.5s ease-in-out;
+	   -moz-transition: 1.5s ease-in-out;
+	   -o-transition: 1.5s ease-in-out;
+	        transition: 1.5s ease-in-out;
+	
+	-webkit-transform-style: preserve-3d;
+	   -moz-transform-style: preserve-3d;
+	   -o-transform-style: preserve-3d;
+	        transform-style: preserve-3d;
+}
+
+#container.flip >div {
+	-webkit-transform: rotateY(180deg);
+	   -moz-transform: rotateY(180deg);
+	   -o-transform: rotateY(180deg);
+	        transform: rotateY(180deg);
+}
+
+/* reduce map size for small screen */
+@media (max-height: 700px) {
+  #container.flip #front, #back{
+		max-height: 300px;
+	}
+}
+
+
+.html4 #container #back{
+	visibility: hidden;
+}
+
+.html4 #container.flip #back {
+	visibility: visible;
+}
+
+.html4 #container.flip #front {
+	visibility: hidden;
+	-webkit-backface-visibility: visible;
+	   -moz-backface-visibility: visible;
+	   -o-backface-visibility: visible;
+	       backface-visibility: visible;
+}
+
+.html4 #container.flip #back {
+	display: block;
+	visibility: visible;
+	-webkit-backface-visibility: visible;
+	   -moz-backface-visibility: visible;
+	   -o-backface-visibility: visible;
+	       backface-visibility: visible;	 
+}
+
+#front, #back{
+	-webkit-backface-visibility: hidden;
+	   -moz-backface-visibility: hidden;
+	   -o-backface-visibility: hidden;
+	        backface-visibility: hidden;
+	        
+	        -webkit-transform: translate3d(0,0,0);
+	width: 270px;
+	min-height: 300px;
+	padding: 30px 15px 5px 15px;
+}
+
+#front *, #back *{
+	-webkit-backface-visibility: hidden;
+	   -moz-backface-visibility: hidden;
+	        backface-visibility: hidden;
+}
+
+#mapshow, #maphide{
+	position: absolute;
+	top: 0;
+	right: -1px;
+	cursor: pointer;
+	font-size: 24px;
+	border-radius: 0;
+	z-index: 1;
+	
+	-webkit-backface-visibility: hidden;
+	   -moz-backface-visibility: hidden;
+	   -o-backface-visibility: hidden;
+	        backface-visibility: hidden;
+}
+
+#mapshow i, #maphide i{
+	z-index: 1;
+	position: relative;
+	color: white;
+	margin: 5px;
+}
+
+#maphide i{
+	margin: 15px;
+}
+
+.after{
+	width: 0;
+	height: 0px;
+	border-style: solid;
+	border-width: 0 60px 60px 0;
+	border-color: transparent #ccc transparent transparent;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#mapshow:hover .after, #maphide:hover .after{
+	border-color: transparent #aaa transparent transparent;
+}
+
+#back{	
+	text-align: center;
+	background: white;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;	
+			
+	-webkit-transform: rotateY(180deg);
+	   -moz-transform: rotateY(180deg);
+	   -o-transform: rotateY(180deg);
+	        transform: rotateY(180deg);
+}
+
+.flip .img-info{
+	//visibility: hidden;
+}

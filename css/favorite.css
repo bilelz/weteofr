@@ -1,0 +1,104 @@
+a.favorite{
+	text-decoration: none;
+	display: inline-block;
+}
+
+.favorite .icon-star, .favorite.isfav .icon-star-empty{
+	display: none;
+}
+
+.favorite .icon-star-empty{
+	display: inline-block;
+	color: #aaa;
+}
+
+.favorite.isfav .icon-star{
+	display: inline-block;
+	color: orange;
+}
+
+#bookmarks{
+	vertical-align: top;
+	font-size: 32px;
+	position: relative;
+	padding: 0 5px;
+	border-left: 1px solid orange;
+	display: block;
+}
+
+#bookmarks .icon-star{
+	left: 10px;
+	font-size: 14px;
+	top: 10px;
+	position: absolute;
+}
+
+#bookmarks .icon-bookmark-empty{
+	vertical-align: text-bottom;
+}
+
+.bookmarks a{
+	color: white;
+	text-decoration: none;
+}
+
+#bookmarks.open + #bookmarkList{
+	display: block;
+	right: 0;
+left: auto;
+}
+
+
+#bookmarkList:before {
+	position: absolute;
+	top: -7px;
+	left: 9px;
+	display: inline-block;
+	border-right: 7px solid transparent;
+	border-bottom: 7px solid #ccc;
+	border-left: 7px solid transparent;
+	border-bottom-color: rgba(0, 0, 0, 0.2);
+	content: '';
+	
+	right: 12px;
+	left: auto;
+}
+
+#bookmarkList:after {
+	position: absolute;
+	top: -6px;
+	left: 10px;
+	display: inline-block;
+	border-right: 6px solid transparent;
+	border-bottom: 6px solid #ffffff;
+	border-left: 6px solid transparent;
+	content: '';
+	
+	right: 13px;
+	left: auto;
+}
+
+#bookmarkList li {
+	display: block;
+	position: relative;
+	white-space: normal;
+}
+
+#bookmarkList li .icon-star{
+	color: orange;
+}
+#bookmarkList li a{
+	padding: 10px;
+	border-bottom: 1px solid #ccc;
+}
+.hideFavList{
+	text-align: center;
+}
+
+.removeFav {
+position: absolute;
+right: 0;
+top: 0;
+font-size: 30px;
+}
+

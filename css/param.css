@@ -1,0 +1,17 @@
+.btn-group>.btn {
+	background: white;
+	border: 1px solid #00ACEE;
+	border-radius: 0 !important;
+}
+
+.btn-group>.btn:active, .btn-group>.btn.active {
+	background: #00ACEE;
+	text-shadow: 0px 1px 1px black;
+	font-weight: normal;
+	color: white;
+}
+
+
+.btn-group>.btn:hover {
+	background: #40C1F2;
+}

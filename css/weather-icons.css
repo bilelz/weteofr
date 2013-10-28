@@ -1,0 +1,458 @@
+.today-detail{ 
+	font-size: 0.9em;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.img-info{
+	opacity: 0.6;
+	width: 16px;
+	vertical-align: top;
+	
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+
+
+.wind-icon {
+	background: url(../img/SVG/Wind.svg) center;
+	width: 24px;
+	height: 24px;
+	display: inline-block;
+	background-size: 48px;
+}
+
+.umbrella-icon {
+	background: url(../img/SVG/Umbrella.svg) center;
+	width: 24px;
+	height: 24px;
+	display: inline-block;
+	background-size: 48px;
+}
+
+.cloud-icon{
+	background: url(../img/SVG/Cloud.svg) center;
+	width: 24px;
+	height: 24px;
+	display: inline-block;
+	background-size: 48px;
+}
+
+/*
+ * icons from http://123freeicons.com/tick-weather-icons
+ * code icon http://developer.yahoo.com/weather/#codes
+ */
+
+.wicon{
+	background-size: 36px;
+	width: 36px;
+	height: 36px;
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-position: center;  
+}
+
+.bigicon {
+	background-size: 96px;
+	width: 96px;
+	height: 96px;
+	-webkit-animation-duration: 2s;
+	   -moz-animation-duration: 2s;
+	     -o-animation-duration: 2s;
+	        animation-duration: 2s;
+}
+
+.bigicon.hide{
+	-webkit-transform: translateY(-300px);
+	   -moz-transform: translateY(-300px);
+	     -o-transform: translateY(-300px);
+	        transform: translateY(-300px); 	
+}
+
+.mini-icon{
+	background-size: 32px;
+	width: 32px;
+	height: 32px;
+	margin: 0 auto;
+}
+
+
+
+@-webkit-keyframes rotation360 {  	from {-webkit-transform: rotate(0deg);}	to   {-webkit-transform: rotate(359deg);}	}
+@-moz-keyframes rotation360 {    	from {-moz-transform: rotate(0deg);}	to   {-moz-transform: rotate(359deg);}	}
+@-o-keyframes rotation360 {   		from {-o-transform: rotate(0deg);}		to   {-o-transform: rotate(359deg);}	}
+@keyframes rotation360 {    		from {transform: rotate(0deg);}			to   {-webkit-transform: rotate(359deg);}	}
+
+
+
+			.i01d{ background-image: url(../img/weather/sunny.png);}
+.googlenow 	.i01d{ background-image: url(../img/googlenow/32.png);}
+
+		   	.i01n{ background-image: url(../img/weather/sunny_night.png);}
+.googlenow 	.i01n{ background-image: url(../img/googlenow/31.png);}
+
+.i02d{ background-image: url(../img/weather/cloudy2.png);}
+.i02n{ background-image: url(../img/weather/cloudy2_night.png);}
+
+
+.i03d, .i03n{ background-image: url(../img/weather/cloudy5.png); }
+
+.i04d{ background-image: url(../img/weather/overcast.png);}
+.i04n{ background-image: url(../img/weather/overcast.png);}
+
+.i09d{ background-image: url(../img/weather/shower1.png); }
+.i09n{ background-image: url(../img/weather/shower1_night.png); }
+
+.i10d { background-image: url(../img/weather/shower3.png); }
+.i10n { background-image: url(../img/weather/shower3.png); }
+
+.i11d{ background-image: url(../img/weather/tstorm1); }
+.i11n{ background-image: url(../img/weather/tstorm1_night.png); }
+
+.i13d{ background-image: url(../img/weather/snow2.png); }
+.i13n{ background-image: url(../img/weather/snow2_night.png); }
+
+.i50d{ background-image: url(../img/weather/fog.png); }
+.i50n{ background-image: url(../img/weather/fog.png); }
+
+ .wicon200{ background-image: url(../img/weather/fog.png); }
+
+.iconcode500{ background-image: url(../img/weather/shower1.png);} 
+.iconcode501{ background-image: url(../img/weather/shower1.png);}
+.iconcode502{ background-image: url(../img/weather/shower1.png);}
+.iconcode503{ background-image: url(../img/weather/shower1.png);}
+.iconcode504{ background-image: url(../img/weather/shower1.png);}
+
+.bigicon.iconcode800{
+	-webkit-animation: rotation360 60s infinite linear;
+	   -moz-animation: rotation360 60s infinite linear;
+	     -o-animation: rotation360 60s infinite linear;
+	        animation: rotation360 60s infinite linear;
+}
+
+.googlenow .bigicon{background-size: 96px;}
+ 
+.googlenow .iconcode200,
+.googlenow .iconcode201,
+.googlenow .iconcode202,
+.googlenow .iconcode210,
+.googlenow .iconcode211,
+.googlenow .iconcode212,
+.googlenow .iconcode221,
+.googlenow .iconcode230,
+.googlenow .iconcode231,
+.googlenow .iconcode232{ background-image: url(../img/googlenow/35.png);}
+
+.googlenow .iconcode300,
+.googlenow .iconcode300,
+.googlenow .iconcode301,
+.googlenow .iconcode302,
+.googlenow .iconcode310,
+.googlenow .iconcode311,
+.googlenow .iconcode312,
+.googlenow .iconcode321{ background-image: url(../img/googlenow/8.png);}
+
+.googlenow .iconcode500,
+.googlenow .iconcode501,
+.googlenow .iconcode502,
+.googlenow .iconcode503,
+.googlenow .iconcode504{ background-image: url(../img/googlenow/39.png);}
+
+.googlenow .iconcode511{ background-image: url(../img/googlenow/10.png);}
+
+.googlenow .iconcode520,
+.googlenow .iconcode521,
+.googlenow .iconcode522{ background-image: url(../img/googlenow/8.png);}
+
+.googlenow .iconcode600{ background-image: url(../img/googlenow/15.png);}
+
+.googlenow .iconcode601,
+.googlenow .iconcode602{ background-image: url(../img/googlenow/14.png);}
+
+.googlenow .iconcode611,
+.googlenow .iconcode621{ background-image: url(../img/googlenow/10.png);}
+
+.googlenow .iconcode701,
+.googlenow .iconcode711,
+.googlenow .iconcode721,
+.googlenow .iconcode731,
+.googlenow .iconcode741{ background-image: url(../img/googlenow/22.png);}
+
+.googlenow .iconcode701.i50n,
+.googlenow .iconcode711.i50n,
+.googlenow .iconcode721.i50n,
+.googlenow .iconcode731.i50n,
+.googlenow .iconcode741.i50n { background-image: url(../img/googlenow/22.png);}
+
+.googlenow .iconcode800{ background-image: url(../img/googlenow/32.png);}
+.googlenow .iconcode800.i01n{ background-image: url(../img/googlenow/31.png);}
+
+.googlenow .iconcode801{ background-image: url(../img/googlenow/34.png);}
+.googlenow .iconcode801.i02n{ background-image: url(../img/googlenow/33.png);}
+
+.googlenow .iconcode802{ background-image: url(../img/googlenow/30.png);}
+.googlenow .iconcode803{ background-image: url(../img/googlenow/28.png);}
+.googlenow .iconcode804{ background-image: url(../img/googlenow/26.png);}
+
+
+/* weather.com */
+//.weathercom .bigicon{background-size: 128px;}
+ 
+.weathercom .iconcode200,
+.weathercom .iconcode201,
+.weathercom .iconcode202,
+.weathercom .iconcode210,
+.weathercom .iconcode211,
+.weathercom .iconcode212,
+.weathercom .iconcode221,
+.weathercom .iconcode230,
+.weathercom .iconcode231,
+.weathercom .iconcode232{ background-image: url(../img/weathercom/0.png);}
+
+.weathercom .iconcode300,
+.weathercom .iconcode300,
+.weathercom .iconcode301,
+.weathercom .iconcode302,
+.weathercom .iconcode310,
+.weathercom .iconcode311,
+.weathercom .iconcode312,
+.weathercom .iconcode321{ background-image: url(../img/weathercom/8.png);}
+
+.weathercom .iconcode500,
+.weathercom .iconcode501,
+.weathercom .iconcode502,
+.weathercom .iconcode503,
+.weathercom .iconcode504{ background-image: url(../img/weathercom/39.png);}
+
+.weathercom .iconcode511{ background-image: url(../img/weathercom/10.png);}
+
+.weathercom .iconcode520,
+.weathercom .iconcode521,
+.weathercom .iconcode522{ background-image: url(../img/weathercom/40.png);}
+
+.weathercom .iconcode600{ background-image: url(../img/weathercom/13.png);}
+
+.weathercom .iconcode601{ background-image: url(../img/weathercom/14.png);}
+.weathercom .iconcode602{ background-image: url(../img/weathercom/42.png);}
+
+.weathercom .iconcode611,
+.weathercom .iconcode621{ background-image: url(../img/weathercom/10.png);}
+
+.weathercom .iconcode701,
+.weathercom .iconcode711,
+.weathercom .iconcode721,
+.weathercom .iconcode731,
+.weathercom .iconcode741{ background-image: url(../img/weathercom/19.png);}
+
+.weathercom .iconcode701.i50n,
+.weathercom .iconcode711.i50n,
+.weathercom .iconcode721.i50n,
+.weathercom .iconcode731.i50n,
+.weathercom .iconcode741.i50n { background-image: url(../img/weathercom/21.png);}
+
+.weathercom .iconcode800{ background-image: url(../img/weathercom/32.png);}
+.weathercom .iconcode800.i01n{ background-image: url(../img/weathercom/31.png);}
+
+.weathercom .iconcode801{ background-image: url(../img/weathercom/28.png);}
+.weathercom .iconcode801.i02n{ background-image: url(../img/weathercom/27.png);}
+
+.weathercom .iconcode802{ background-image: url(../img/weathercom/26.png);}
+.weathercom .iconcode803{ background-image: url(../img/weathercom/26.png);}
+.weathercom .iconcode804{ background-image: url(../img/weathercom/26.png);}
+
+/* SVG */
+/* weather.com */
+.SVG .bigicon{background-size: 192px;}
+ 
+.SVG .iconcode200,
+.SVG .iconcode201,
+.SVG .iconcode202,
+.SVG .iconcode210,
+.SVG .iconcode211,
+.SVG .iconcode212,
+.SVG .iconcode221,
+.SVG .iconcode230,
+.SVG .iconcode231,
+.SVG .iconcode232{ background-image: url(../img/SVG/0.png);}
+
+.SVG .iconcode300,
+.SVG .iconcode300,
+.SVG .iconcode301,
+.SVG .iconcode302,
+.SVG .iconcode310,
+.SVG .iconcode311,
+.SVG .iconcode312,
+.SVG .iconcode321{ background-image: url(../img/SVG/8.png);}
+
+.SVG .iconcode500,
+.SVG .iconcode501,
+.SVG .iconcode502,
+.SVG .iconcode503,
+.SVG .iconcode504{ background-image: url(../img/SVG/39.png);}
+
+.SVG .iconcode511{ background-image: url(../img/SVG/10.png);}
+
+.SVG .iconcode520,
+.SVG .iconcode521,
+.SVG .iconcode522{ background-image: url(../img/SVG/40.png);}
+
+.SVG .iconcode600{ background-image: url(../img/SVG/13.png);}
+
+.SVG .iconcode601{ background-image: url(../img/SVG/14.png);}
+.SVG .iconcode602{ background-image: url(../img/SVG/42.png);}
+
+.SVG .iconcode611,
+.SVG .iconcode621{ background-image: url(../img/SVG/10.png);}
+
+.SVG .iconcode701,
+.SVG .iconcode711,
+.SVG .iconcode721,
+.SVG .iconcode731,
+.SVG .iconcode741{ background-image: url(../img/SVG/19.png);}
+
+.SVG .iconcode701.i50n,
+.SVG .iconcode711.i50n,
+.SVG .iconcode721.i50n,
+.SVG .iconcode731.i50n,
+.SVG .iconcode741.i50n { background-image: url(../img/SVG/21.png);}
+
+.SVG .iconcode800{ background-image: url(../img/SVG/Sun.svg);}
+.SVG .iconcode800.i01n{ background-image: url(../img/SVG/Moon.svg);}
+
+.SVG .iconcode801{ background-image: url(../img/SVG/28.png);}
+.SVG .iconcode801.i02n{ background-image: url(../img/SVG/27.png);}
+
+.SVG .iconcode802{ background-image: url(../img/SVG/26.png);}
+.SVG .iconcode803{ background-image: url(../img/SVG/26.png);}
+.SVG .iconcode804{ background-image: url(../img/SVG/26.png);}
+
+
+// font forecast icon
+
+@font-face {
+  font-family: "iconvault";
+  src: url("/weteo2/img/ForecastFont/iconvault_forecastfont.eot");
+  src: url("/weteo2/img/ForecastFont/iconvault_forecastfont.eot?#iefix") format("embedded-opentype"),
+       url("/weteo2/img/ForecastFont/iconvault_forecastfont.woff") format("woff"),
+       url("/weteo2/img/ForecastFont/iconvault_forecastfont.ttf") format("truetype"),
+       url("/weteo2/img/ForecastFont/iconvault_forecastfont.svg#iconvault") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.forecastfont .forecast[class^="icon-"],
+.forecastfont .forecast[class*=" icon-"] {
+	font-family: 'iconvault';
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: inherit;
+	-webkit-font-smoothing: antialiased;
+	font-size: 6em;
+}
+
+.forecastfont .iconcode800::after {
+content: "\f113";
+color: rgb(255, 165, 0);
+position: absolute;
+}
+
+.forecastfont .iconcode502,
+.forecastfont .iconcode503,
+.forecastfont .iconcode504{ background-image: url(../img/googlenow/39.png);}
+
+.forecastfont .iconcode511{ background-image: url(../img/googlenow/10.png);}
+
+.forecastfont .iconcode520,
+.forecastfont .iconcode521,
+.forecastfont .iconcode522{ background-image: url(../img/googlenow/8.png);}
+
+.forecastfont .iconcode600{ background-image: url(../img/googlenow/15.png);}
+
+.forecastfont .iconcode601,
+.forecastfont .iconcode602{ background-image: url(../img/googlenow/14.png);}
+
+.forecastfont .iconcode611,
+.forecastfont .iconcode621{ background-image: url(../img/googlenow/10.png);}
+
+.forecastfont .iconcode701,
+.forecastfont .iconcode711,
+.forecastfont .iconcode721,
+.forecastfont .iconcode731,
+.forecastfont .iconcode741{ background-image: url(../img/googlenow/22.png);}
+
+.forecastfont .iconcode701.i50n,
+.forecastfont .iconcode711.i50n,
+.forecastfont .iconcode721.i50n,
+.forecastfont .iconcode731.i50n,
+.forecastfont .iconcode741.i50n { background-image: url(../img/googlenow/22.png);}
+
+.forecastfont .iconcode800{ background-image: url(../img/googlenow/32.png);}
+.forecastfont .iconcode800.i01n{ background-image: url(../img/googlenow/31.png);}
+
+.forecastfont .iconcode801{ background-image: url(../img/googlenow/34.png);}
+.forecastfont .iconcode801.i02n{ background-image: url(../img/googlenow/33.png);}
+
+.forecastfont .iconcode802{ background-image: url(../img/googlenow/30.png);}
+.forecastfont .iconcode803{ background-image: url(../img/googlenow/28.png);}
+.forecastfont .iconcode804{ background-image: url(../img/googlenow/26.png);}
+
+
+
+
+.icon-night:before,
+.icon-sunny:before,
+.icon-frosty:before,
+.icon-windysnow:before,
+.icon-showers:before,
+.icon-basecloud:before,
+.icon-cloud:before,
+.icon-rainy:before,
+.icon-mist:before,
+.icon-windysnowcloud:before,
+.icon-drizzle:before,
+.icon-snowy:before,
+.icon-sleet:before,
+.icon-moon:before,
+.icon-windyrain:before,
+.icon-hail:before,
+.icon-sunset:before,
+.icon-windyraincloud:before,
+.icon-sunrise:before,
+.icon-sun:before,
+.icon-thunder:before,
+.icon-windy:before {
+  font-family: "iconvault";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  text-decoration: inherit;
+}
+
+.icon-night:before { content: "\f100"; }
+.icon-sunny:before { content: "\f101"; }
+.icon-frosty:before { content: "\f102"; }
+.icon-windysnow:before { content: "\f103"; }
+.icon-showers:before { content: "\f104"; }
+.icon-basecloud:before { content: "\f105"; }
+.icon-cloud:before { content: "\f106"; }
+.icon-rainy:before { content: "\f107"; }
+.icon-mist:before { content: "\f108"; }
+.icon-windysnowcloud:before { content: "\f109"; }
+.icon-drizzle:before { content: "\f10a"; }
+.icon-snowy:before { content: "\f10b"; }
+.icon-sleet:before { content: "\f10c"; }
+.icon-moon:before { content: "\f10d"; }
+.icon-windyrain:before { content: "\f10e"; }
+.icon-hail:before { content: "\f10f"; }
+.icon-sunset:before { content: "\f110"; }
+.icon-windyraincloud:before { content: "\f111"; }
+.icon-sunrise:before { content: "\f112"; }
+.icon-sun:before { content: "\f113"; }
+.icon-thunder:before { content: "\f114"; }
+.icon-windy:before { content: "\f115"; }

@@ -1,0 +1,22 @@
+.mapclose {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	font-size: 32px;
+	color: #aaa;
+	width: 32px;
+	cursor: pointer;
+	height: 32px;
+	line-height: 32px;
+	background: transparent;
+	border: none;
+}
+
+a.maplink {
+	background: #eee;
+	display: block;
+	margin-top: -6px;
+	font-size: 0.8em;
+	text-decoration: none;
+	text-align: center;
+}

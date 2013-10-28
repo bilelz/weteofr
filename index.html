@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        
+        <meta itemprop="name" content="Weteo">
+		<meta itemprop="description" content="Only a Weather web application">
+		<meta itemprop="image" content="http://weteo.fr/img/weteo.png">
+		
+		<!--<meta name="fragment" content="!">--> <!--  Gérer les pages sans fragments de hachage http://support.google.com/webmasters/bin/answer.py?hl=fr&answer=174992-->
+		
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="A (very) simple weather web application">
+		<meta name="twitter:description" content="A simple weather web application">
+		<meta name="twitter:creator" content="@bilelz">
+		<meta name="twitter:image:src" content="http://weteo.fr/img/weteo.png">
+		<meta name="twitter:domain" content="weteo.com">
+		
+		<link rel="apple-touch-icon-precomposed" href="img/weteo.png" />
+        <link rel="shortcut icon" type="image/png" href="img/weteo_icon.png" />
+		
+        <title>Weteo</title>
+        <meta name="description" content="Only a Weather web application">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/main.css?taaasp">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+ 		<link rel="stylesheet" href="css/weteo.css?vdahjaadgmjudkfdesDssaka">
+        <link rel="stylesheet" href="css/weather-icons.css?gdgalcfdakood">
+        <link rel="stylesheet" href="css/search.css?VaamgulDtid">
+        <link rel="stylesheet" href="css/animation.css?trfiaangle">
+        <link rel="stylesheet" href="css/today.css?Dfa">
+        <link rel="stylesheet" href="css/favorite.css?Dfdsa">
+        <link rel="stylesheet" href="css/param.css">
+        
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        
+         <nav>
+         	
+        	<ul>
+        		<li class="home">
+        			<img src="img/weteo_icon_128.png" alt="Weteo" width="32" class="logo"/>        			
+        		</li>
+        		<li>
+        			<form class="search">
+						<label for="search" class="search-icon"><i class="icon-search"></i></label>
+						<input type="search" id="search" name="search" placeholder="" required="" >
+			
+						<span>
+							<button type="reset" id="cityClearSearch">
+							<label for="search">&times</label>
+						</button>
+						<a href="#geo" id="geo"> <i class="icon-screenshot"></i> Lieu actuel </a>
+						</span>
+						
+					</form>
+        		</li>
+        		<li class="bookmarks dropdown">
+        			<a href="#bookmarks" id="bookmarks" data-toggle="dropdown" class="dropdown-toggle">
+	        			<i class="icon-bookmark-empty"></i>
+	        			<i class="icon-star"></i>
+        			</a>
+        			<ul class="dropdown-menu bounceInDown animated" data-role="menu" id="bookmarkList">
+        									
+					</ul>
+					<script id="bookmarkList-tmpl" type="text/x-jquery-tmpl">
+						{{#fav}}
+				            <li>
+				                <a href="#{{id}}/{{city}}" id="{{id}}" class="showFav">
+				                    <i class="icon-star"></i> {{city}}
+				                </a>
+				                <a href="#{{id}}/{{city}}" id="{{id}}"  class="removeFav" title="Retirer ce favori">				                    
+				                    &times;
+				                </a>
+				            </li>
+				        {{/fav}}
+				        {{^fav.0}}
+				        	<li>BOUUUUUUH ! Pas encore de favoris!</li>
+				        	<li>Pour ajouter une ville en favori, appuyer sur l'étoile <i class="icon-star-empty"></i> à coté de la ville</li>
+				        {{/fav.0}}
+			            <li class="hideFavList">
+			                <button class="btn" type="button">&times;</button>
+			            </li>
+			        </script>
+	             </li>
+        	</ul>
+        </nav>		
+        
+        <ul id="multiCityList" class=""> </ul>
+
+        <script id="multiCityTmpl" type="text/x-jquery-tmpl">
+            {{#cityItem}}
+            <li class="city-item">
+                <a href="#{{lat}}|{{lng}}|{{address}}" lat="{{lat}}" lng="{{lng}}" class="multiCity">
+                    <i class="icon-map-marker"></i> {{address}}
+                </a>
+            </li>
+            {{/cityItem}}
+            <li class="removeCityList">
+                <button class="btn" type="button">&times;</button>
+            </li>
+        </script>
+        
+       
+        <i class="forecast icon-sunrise"></i> 
+       
+        
+        <div id="container">
+        	
+        	
+        	
+        	<div>
+        		<div id="front">
+        			
+		        	<div id="today">
+		        		
+		        		A simple weather web application<br/
+		        		
+		        		<img src="img/weteo_256.png" alt="weteo" width="128"/>
+                    		<br/>
+                    		Chargement en cours... 
+		        		
+		        	</div>
+		        	
+		        	<script id="today-tmpl" type="text/x-jquery-tmpl">
+		        			        		
+		        		
+		        		<span class="city" title="{{city}}">
+		        			<a href="#fav" class="favorite {{#isFav}}isfav{{/isFav}}" title="Mettre en favoris/Bookmark" city="{{city}}" cityId="{{cityId}}">
+			        			<i class="icon-star-empty"></i><i class="icon-star"></i>
+			        		</a>
+	            			<span class="name">{{city}}</span>
+	            			
+	            			<a class="country" title='{{city}} ({{country}})'
+	            				
+	            				href="#maps" target="_blank" data-toggle="popover" data-placement="bottom" 
+	            				
+	            				data-content='<iframe  width="100%" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.fr/maps?hl=fr&amp;q={{city}}&amp;ie=UTF8&amp;hq=&amp;hnear={{lat}},{{lng}}&amp;gl=fr&amp;t=m&amp;z=3&amp;ll={{lat}},{{lng}}&amp;iwloc=near&amp;output=embed"></iframe> <a class="maplink" target="_blank" title="Google Maps"
+	            				href="http://maps.google.fr/maps?hl=fr&amp;q={{city}}&amp;ie=UTF8&amp;hq=&amp;hnear={{lat}},{{lng}}&amp;gl=fr&amp;t=m&amp;z=12&amp;ll={{lat}},{{lng}}&amp;iwloc=near">Ouvrir dans Google Maps</i></a> <button type="button" class="mapclose">&times; ok</button> ' 
+	            				
+	            				data-original-title=''  data-html="true" onclick="return false;">
+	            					<i class="icon-map-marker"></i>
+	            					
+	            			</a>	            			
+	            		</span>
+	            		
+	            		                  	
+	            		                  	
+	            		                  	
+	            		                  	
+	            		                  	
+
+	            		
+		        		
+		        		<div id="today-info">
+							<span class="i{{icon}} iconcode{{iconcode}} wicon bigicon" title="{{description}}"></span>
+							
+							<span class="temp tempC">{{temp}}°</span>
+							<span class="temp tempK">{{tempK}}°</span>
+							<span class="temp tempF">{{tempF}}°</span>
+		        		</div>
+		        		
+		        		
+						
+						
+						<div id="today-info-detail">
+								{{#wind}}
+									<span class="today-detail" title="Wind"> 
+										<i title="wind" class="wind-icon img-info"></i><br/>
+										<span class="windKmh">{{wind}} km/h</span>
+										<span class="windMps">{{windMps}} m/s</span>
+										<span class="windMilesph">{{windMilesph}} miles/h</span>
+										<br/>
+										{{windDirection}}
+											<i class="icon-location-arrow" title="{{windDegree}}°" 
+												style="display: inline-block;-webkit-transform: rotate({{windDegree}}deg);"></i>
+									</span>	
+								{{/wind}}
+								
+								{{#cloud}}
+									<span class="today-detail">
+										<i title="cloud" class="cloud-icon img-info"></i><br/>
+										{{cloud}}%	
+									</span>									
+								{{/cloud}}
+								{{#snow}}
+									<span class="today-detail">
+										<img src="img/iconbeast/snow-flake.png" alt="snow" class="img-info"/><br/>
+										{{snow}} mm/3h
+									</span>
+								{{/snow}}
+								
+								{{#rain}}
+									<span class="today-detail" title="rain">
+										<i class="umbrella-icon img-info"></i><br/>
+										{{rain}}<br/> 
+										mm/3h
+									</span>
+								{{/rain}}
+								
+								{{#humidity}}
+									<span class="today-detail" title="Humidity"> 
+										<i class="icon-tint img-info"></i><br/>
+										<span>{{humidity}}%</span>
+									</span>
+								{{/humidity}}															
+							</div>
+		        	</script> 
+        	
+		        	<div style="clear: both"> </div>
+		        	
+	        		<p data-toggle="collapse" data-target="#week-list-collapse" class="flat-button flat-prevision">
+		        		<i class=" icon-bar-chart"></i> Prévisions 
+		        	</p> 
+		        	
+		        	<div id="week-list-collapse" class="collapse">
+	        	
+		        		<div id="week-list-div"> </div>
+		        	
+		        		<div id="week-list-detail-div" class="accordion"> </div>
+			            
+			         </div>
+		        	
+		        	<script id="week-list-tmpl" type="text/x-jquery-tmpl">
+                    		{{#weekItem}}
+			                  
+			                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#week-list-detail-div" href="#accordion{{dayMinus}}{{dayNumber}}">
+						        {{dayMinus}} 
+			                  	<div style="clear: both"></div>
+			                  	
+			                  	<span class="i{{icon}} iconcode{{iconcode}} wicon" title="{{description}}"></span>
+			                  	<div style="clear: both"></div>
+													
+								<span class="temp-minmax">									
+									<span class="tempC max">{{tempFullDayMaxCelcius}}°</span>
+									<span class="tempK max">{{tempFullDayMaxK}}°</span>
+									<span class="tempF max">{{tempFullDayMaxFarh}}°</span>
+									<div style="clear: both"></div>
+								
+									<span class="tempC min">{{tempFullDayMinCelcius}}°</span>
+									<span class="tempK min">{{tempFullDayMinK}}°</span>
+									<span class="tempF min">{{tempFullDayMinFarh}}°</span>
+								</span>			                  		              
+								<div style="clear: both"></div>
+								
+								<span class="showDetail">+</span>
+								<span class="hideDetail">-</span>
+						      </a>			                  
+			                  
+                    		{{/weekItem}} 			
+						</script>
+		        	
+		        	
+			            
+						<script id="week-list-detail-tmpl" type="text/x-jquery-tmpl">
+							{{#weekItem}}
+								    
+								    <div class="accordion-group">
+									    <div id="accordion{{dayMinus}}{{dayNumber}}" class="accordion-body collapse">
+									      <div class="accordion-inner">
+									        {{day}} {{dayNumber}} {{month}} <br/>                    					
+			            					{{main}}, {{description}}<br/>
+			            					<table>
+			            						<tr>
+			            							{{#dayEvolution}}                 							
+			                    							{{#dayItem}}
+			                    							<td  >  
+					                    						<small>{{hour}}h</small> <br/>
+						<span class="i{{icon}} iconcode{{iconcode}} wicon mini-icon"
+											                  	title='
+			                    							<i title="wind" class="wind-icon img-info"></i><br/>
+										<span class="windKmh">{{wind}} km/h</span>
+										<span class="windMps">{{windMps}} m/s</span>
+										<span class="windMilesph">{{windMilesph}} miles/h</span>
+										{{windDirection}} 
+											<i class="icon-location-arrow" style="display: inline-block;-webkit-transform: rotate({{windDegree}}deg);">
+																								
+											</i>
+										
+										{{#wind}}
+										<i title="wind" class="wind-icon img-info"></i><br/>
+										<span class="windKmh">{{wind}} km/h</span>
+										<span class="windMps">{{windMps}} m/s</span>
+										<span class="windMilesph">{{windMilesph}} miles/h</span>
+										<br/>
+										{{windDirection}}
+											<i class="icon-location-arrow" title="{{windDegree}}°" 
+												style="display: inline-block;-webkit-transform: rotate({{windDegree}}deg);"></i>
+								{{/wind}}
+								
+								{{#cloud}}
+										<i class="cloud-icon img-info"></i><br/>
+										{{cloud}}%	
+								{{/cloud}}
+								{{#snow}}
+									<span>
+										<img src="img/iconbeast/snow-flake.png" alt="snow" />
+										{{snow}} mm/3h
+										<br/>
+									</span>
+								{{/snow}}
+								
+								{{#rain}}
+										<i class="umbrella-icon img-info"></i>
+										{{rain}}
+										mm/3h<br/>
+								{{/rain}}
+								
+								{{#humidity}}
+										<i class="icon-tint img-info"></i>
+										<span>{{humidity}}%</span><br/>
+								{{/humidity}}
+											
+											'></span>
+											                  	 <br/>
+											                  	<span class="tempTooltip">
+											                  		<span class="tempC">{{temp}}°</span>
+																	<span class="tempK">{{tempK}}°</span>
+																	<span class="tempF">{{tempF}}°</span>
+											                  	</span>
+											               </td>
+				                    						{{/dayItem}}
+				                    					{{/dayEvolution}}                    							
+			            						</tr>
+			            					</table>
+									      </div>
+									    </div>
+									  </div>
+								    
+							{{/weekItem}} 	
+						</script>
+		        	
+					<!-- Button to trigger modal -->
+					<a href="#myModal" role="button" class="flat-button" data-toggle="modal">
+						<i class="icon-share-alt"></i> Partager
+					</a>
+                    	
+                    	<script id="share-tmpl" type="text/x-jquery-tmpl">
+                    			<p>
+                    		   
+                    		    	<a href="https://twitter.com/share" class="twitter-share-button" 
+			                      		data-text="{{tempc}}°C {{description}} @ {{city}}"  data-size="large"
+			                      		data-hashtags="weteo,weather" data-url="{{link}}" data-via="bilelz" data-lang="fr">
+			                      		<span class="btn btn">Twitter</span>
+			                      	</a>
+			                      </p>
+			                      <p>
+			                      	<a href="https://twitter.com/bilelz" class="twitter-follow-button" data-show-count="true" data-lang="fr" data-size="large">
+						          		<span class="btn"><i></i> Suivre @bilelz</span>
+									</a>							
+			                    </p>  	
+			                      	<meta itemprop="name" content="{{tempc}}°C {{description}} @ {{city}}">
+			                      	<meta itemprop="image" content="{{img}}">
+			                     
+			                     <p> 	
+			                      	
+									<div class="g-plus" data-action="share" data-annotation="bubble" data-height="24" data-href="{{link}}" style="display: inline-block">
+										<a href="https://plus.google.com/share?url={{link}}" target="_blank" class="btn">Google +1</a>
+									</div>
+
+
+								</p>
+									
+								<p>
+
+									<a class="btn" onclick="window.open(this.href,'sharer','toolbar=0,status=0,width=560,height=350'); return false;" target="_parent" href="http://www.facebook.com/sharer.php?s=100&amp;p[title]={{tempc}}°C {{description}} @ {{city}}&amp;p[summary]={{tempc}}°C {{description}} @ {{city}}%0D%0A%0D%0A{{linkEscape}}&amp;p[url]={{linkEscape}}&amp;p[images][0]={{img}}" style="vertical-align: top">
+						                <i class="icon-facebook-sign"></i> facebook
+						            </a>
+								</p>
+								<p>
+									<a class="btn btn" 
+										href="mailto:?subject={{tempc}}°C {{description}} @ {{city}}&amp;body={{tempc}}°C {{description}} @ {{city}}%0D%0A%0D%0A{{link}}&amp;attachment='{{img}}'">
+											<i class="icon-envelope"></i> Mail
+									</a>
+								</p>
+								<p>	
+									<a class="btn btn btn-success" href="sms:?body={{tempc}}°C {{description}} @ {{city}}%0D%0A%0D%0A{{linkEscape}}">
+											<i class="icon-smile"></i>
+											SMS (βêta)
+									</a>
+								</p>
+								<p class="url"> </p>
+									
+	                      	</a>    
+	                      	
+                    	</script>
+                    	
+                    	
+					
+				<p></p>                    	
+                    
+                    <script id="url-tmpl" type="text/x-jquery-tmpl">
+                    	<a href="{{link}}" id="link" class="btn btn-link" title="Permalien / Permalink">	                    		
+                    		<i class="icon-globe"></i>
+                    		<span>{{linkText}}</span>
+                      	</a>    
+	                      	
+                	</script>
+                    
+                    <p style="text-align: center">
+		        		<button class="btn" id="refresh">
+        					<i class="icon-refresh"></i>
+        				</button>
+		        	</p>
+		        	
+		        	
+		        	<span id="mapshow">
+		        		<i class="icon-wrench"></i>
+		        		<span class="after"> </span>
+		        	</span>
+		        	
+		        	
+        		</div>
+        		
+        		<div id="back">
+        			
+        			<div>
+            			<div class="btn-group" data-toggle="buttons-radio">
+            				<!--
+            					English - en, Russian - ru, Italian - it, Spanish - sp, Ukrainian - ua, German - de, Portuguese - pt, Romanian - ro, Polish - pl, Finnish - fi, Dutch - nl, French - fr, Bulgarian - bg, Swedish - se, Chinese Traditional - zh_tw, Chinese Simplified - zh_cn, Turkish - tr 
+            				-->
+						  <label class="btn active" for="fr">
+								<input type="radio" name="lang" value="fr" id="fr" checked="checked"/>Français
+							</label>
+							<label class="btn" for="en">
+								<input type="radio" name="lang" value="en" id="en"/>English
+							</label>
+							<label class="btn" for="sp">
+								<input type="radio" name="lang" value="sp" id="sp"/>Spanish
+							</label>								  
+						</div>
+            		</div>
+        			
+        			<div>
+            			<div class="btn-group" data-toggle="buttons-radio">
+						  <label class="btn active" for="C">
+								<input type="radio" name="degree" value="C" id="C" checked="checked"/>°C
+							</label>
+							<label class="btn" for="farh">
+								<input type="radio" name="degree" value="farh" id="farh"/>°F
+							</label>
+							<label class="btn" for="kelvin">
+								<input type="radio" name="degree" value="kelvin" id="kelvin"/>Kelvin
+							</label>								  
+						</div>
+            		</div>
+	            	
+					
+					<div>
+						<div class="btn-group" data-toggle="buttons-radio" id="windspeed">								  	
+						  	<label class="btn active" for="kmh">
+								<input type="radio" name="windspeed" value="kmh" id="kmh" checked="checked"/>km/h
+							</label>
+							<label class="btn" for="mph">
+								<input type="radio" name="windspeed" value="mph" id="mph"/>miles/h
+							</label>
+							<label class="btn" for="ms">
+								<input type="radio" name="windspeed" value="ms" id="ms"/>m/s
+							</label>
+						  	
+						</div>								
+					</div>
+					
+					
+					<div>
+						<div class="btn-group" data-toggle="buttons-radio" id="font">
+							<label class="btn active" for="Lato">
+						  		<input type="radio" name="font" id="Lato" value="Lato" checked="checked"/>
+						  		<img src="img/fonts/lato.png" alt="Lato"/> 
+						  	</label>
+							<label class="btn" for="Finger Paint">
+								<input type="radio" name="font" id="Finger Paint" value="Finger Paint"/>
+								<img src="img/fonts/fingerpaint.png" alt="Finger Paint"/>										
+							</label>
+							
+							
+						  	<label class="btn" for="Merienda One">
+						  		<input type="radio" name="font" id="Merienda One" value="Merienda One"/>
+						  		<img src="img/fonts/MeriendaOne.png" alt="Merienda One"/> 
+						  	</label>		
+						  	<br />						  	
+						  	<label class="btn" for="Ubuntu">
+						  		<input type="radio" name="font" id="Ubuntu" value="Ubuntu"/>
+						  		<img src="img/fonts/ubuntu.png" alt="Ubuntu"/>
+						  	</label>
+						  	
+						  	<label class="btn" for="Lobster">
+						  		<input type="radio" name="font" id="Lobster" value="Lobster"/>
+						  		<img src="img/fonts/lobster.png" alt="Lobster"/>
+						  	</label>
+						  	<label class="btn" for="Pacifico ">
+						  		<input type="radio" name="font" id="Pacifico " value="Pacifico "/>
+						  		<img src="img/fonts/pacifico.png" alt="Pacifico"/>
+						  	</label>							
+						  	<label class="btn" for="Roboto">
+						  		<input type="radio" name="font" id="Roboto" value="Roboto"/>
+						  		Roboto
+						  	</label>	  	
+						</div>								
+					</div>
+					
+					<div>
+						<div class="btn-group" data-toggle="buttons-radio" id="icon">
+							<label class="btn active" for="weather" title="weather">
+								<input type="radio" name="icon" id="weather" value="weather" checked="checked"/>
+						  		<i style="background-image: url(img/weather/shower2.png)"></i> 																		
+							</label>
+							<label class="btn" for="googlenow" title="Google Now">
+						  		<input type="radio" name="icon" id="googlenow" value="googlenow"/>
+						  		<i style="background-image: url(img/googlenow/39.png)"></i> 
+						  	</label>
+							<label class="btn" for="weathercom" title="Weather.com">
+								<input type="radio" name="icon" id="weathercom" value="weathercom"/>
+						  		<i style="background-image: url(img/weathercom/39.png)"></i> 																		
+							</label>
+							<label class="btn" for="SVG" title="SVG">
+								<input type="radio" name="icon" id="SVG" value="SVG"/>
+						  		<i style="background-image: url(img/SVG/Cloud-Rain-Sun.svg)"></i> 	
+						  																			
+							</label>
+							<label class="btn" for="forecastfont" title="forecastfont">
+								<input type="radio" name="icon" id="forecastfont" value="forecastfont"/>
+						  		forecastfont						  																			
+							</label>													  	
+						</div>								
+					</div>
+					
+						<button id="clearStorage" class="btn">Clear localStorage/cookies</button>
+
+					
+					<span id="maphide">
+		        		<i class="icon-reply"></i>
+		        		<span class="after"> </span>
+		        	</span>
+        		</div>
+        		
+        		
+        	</div>
+        	
+        	
+        	
+        	<br/>
+        	
+        	<footer>
+	        	<a href="http://bilelz.fr" target="_blank">
+	        		bilelz &copy;
+	        	</a>
+	        	| 
+	        	<a href="https://plus.google.com/116075644709647103776?rel=author" target="_blank">g+</a>
+	        	|
+	        	<button id="buzz" class="btn btn-mini" title="re-buzz!">
+	        		<i class="icon-mobile-phone"></i>
+	        	</button> 	
+	        </footer>
+        </div>
+        
+         <div class="well well-small alert alert-info" id="info">
+        	<button type="button" class="close" id="info-close">×</button>
+			<p>Recherche en cours  ...</p>						 
+		</div>
+
+        
+        <!-- Modal -->
+		<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-header">
+		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		    <h3 id="myModalLabel"><i class="icon-share-alt"></i> Partager</h3>
+		  </div>
+		  <div class="modal-body" style="text-align: center">
+		    <p id="share"> share ...</p>
+		  </div>
+		  <div class="modal-footer" style="text-align: center">
+		    <button class="btn" data-dismiss="modal" aria-hidden="true">OK</button>
+		  </div>
+		</div>
+        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/mustache.js"></script>
+        <script src="js/utils.js?vfavahdaDg"></script>
+        <script src="js/utils-geo.js?forDadm"></script>
+        <script src="js/weather-utils.js?dfdhhaaDv"></script>
+        <script src="js/main.js?adafuftddjDhgoc"></script>
+        <script src="js/favorite.js?stodDdar"></script>
+
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false&key=AIzaSyDx6yESNHPjUqcO3Xyw4dkWGbr7zLHN72E"></script>
+
+		<script type="text/javascript">
+		  window.___gcfg = {lang: 'fr'};							
+		  (function() {
+		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		    po.src = 'https://apis.google.com/js/plusone.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		  })();
+		</script>
+		
+		<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+		
+        <script type="text/javascript">
+
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-4041493-15']);
+		  _gaq.push(['_setDomainName', 'weteo.fr']);
+		  _gaq.push(['_setAllowLinker', true]);
+		  _gaq.push(['_trackPageview']);
+		
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		
+		</script>
+    </body>
+</html>
